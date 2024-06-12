@@ -25,7 +25,7 @@ Today is a productivity app for iOS designed to help users focus on their daily 
 ![Add Reminder Screen](assets/add_reminder.png)
 
 #### Reminder Detail View
-![Reminder Detail View](assets/remidner_view_editing.png)
+![Reminder Detail View](assets/reminder_view_editing.png)
 
 ### Getting Started
 
