@@ -70,14 +70,6 @@ Contributions are welcome! Please follow these steps to contribute:
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
-### License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ### Contact
 
-If you have any questions, feel free to open an issue or contact the project maintainer at [email@example.com](mailto:email@example.com).
-
----
-
-Replace `path/to/screenshot1.png`, `path/to/screenshot2.png`, and `path/to/screenshot3.png` with the actual paths to the screenshots. Additionally, update the repository URL, contact email, and any other placeholders with the relevant information.
+If you have any questions, feel free to open an issue or contact the project maintainer at [anurag.tyagi4964@gmail.com](mailto:anurag.tyagi4964@gmail.com).
