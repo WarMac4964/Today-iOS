@@ -1,33 +1,29 @@
-//
-//  ViewController.swift
-//  Today
-//
-//  Created by Anurag Tyagi on 11/06/24.
-//
+/*
+ See LICENSE folder for this sample’s licensing information.
+ */
 
 import UIKit
 
 class ReminderListViewController: UICollectionViewController {
-    
     var dataSource: DataSource!
+    var reminders: [Reminder] = Reminder.sampleData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let list = listLayout()
-        collectionView.collectionViewLayout = list
-        
-        let cellRegistration = UICollectionView.CellRegistration(handler: handleCellRegistration)
-        
-        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-        })
-        
-        var snapshot = DataSnapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(Reminder.sampleData.map({$0.title}))
-        dataSource.apply(snapshot)
-        
+
+        let listLayout = listLayout()
+        collectionView.collectionViewLayout = listLayout
+
+        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
+
+        dataSource = DataSource(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Reminder.ID) in
+            return collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration, for: indexPath, item: itemIdentifier)
+        }
+
+        updateSnapshot()
+
         collectionView.dataSource = dataSource
     }
 
@@ -35,7 +31,6 @@ class ReminderListViewController: UICollectionViewController {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         listConfiguration.showsSeparators = false
         listConfiguration.backgroundColor = .clear
-        return UICollectionViewCompositionalLayout.list( using: listConfiguration)
+        return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
 }
-
